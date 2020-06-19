@@ -10,7 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.thevarungupta.volleydemowithjava.R;
+import com.thevarungupta.volleydemowithjava.app.Config;
+import com.thevarungupta.volleydemowithjava.app.MyApplication;
 import com.thevarungupta.volleydemowithjava.models.Product;
 
 import java.util.ArrayList;
@@ -33,9 +37,22 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Product product = mList.get(position);
         holder.textView.setText(product.getProductName());
+
+        ImageLoader imageLoader = MyApplication.getInstance().getImageLoader();
+        imageLoader.get(Config.IMAGE_URL + product.getImage(), new ImageLoader.ImageListener() {
+            @Override
+            public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
+                holder.imageView.setImageBitmap(response.getBitmap());
+            }
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
     }
 
     @Override

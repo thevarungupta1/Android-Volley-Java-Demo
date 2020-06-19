@@ -1,15 +1,12 @@
 package com.thevarungupta.volleydemowithjava.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -22,9 +19,7 @@ import com.thevarungupta.volleydemowithjava.app.Endpoints;
 import com.thevarungupta.volleydemowithjava.app.MyApplication;
 import com.thevarungupta.volleydemowithjava.models.Product;
 import com.thevarungupta.volleydemowithjava.models.ProductResponse;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
