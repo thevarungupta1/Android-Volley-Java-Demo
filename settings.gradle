@@ -1,0 +1,2 @@
+rootProject.name='VolleyDemoWithJava'
+include ':app'
